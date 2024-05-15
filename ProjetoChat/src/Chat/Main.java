@@ -7,7 +7,6 @@ public class Main {
 		 //Testando para ver se as classes estao funcionando
 		 
 	        // Criando um usuário
-	        Eu eu = new Eu(123456789);
 	        
 	        // Criando um contato
 	        Outros contato1 = new Outros("Marcos",234526748);
@@ -18,7 +17,7 @@ public class Main {
 	        Chat chat2 = new Chat(contato2);
 
 	        // Enviando mensagens 
-	        Mensagem msg1 = new Mensagem(eu, "Olá, como você está?");
+	        Mensagem msg1 = new Mensagem(Eu.getEu(), "Olá, como você está?");
 	        Mensagem msg2 = new Mensagem(chat1.getContato(), "Estou bem, obrigado!");
 	        
 	        // Adicionando mensagens ao chat1
@@ -26,23 +25,19 @@ public class Main {
 	        chat1.adicionarMensagem(msg2);
 	        
 	        // Enviando mensagens 
-	        Mensagem msg3 = new Mensagem(eu, "Você estudou para a prova de amanhã?");
+	        Mensagem msg3 = new Mensagem(Eu.getEu(), "Você estudou para a prova de amanhã?");
 	        Mensagem msg4 = new Mensagem(chat2.getContato(), "Não estudei, to lascado");
 	        
 	        // Adicionando mensagens ao chat1
-	        chat1.adicionarMensagem(msg3);
-	        chat1.adicionarMensagem(msg4);
+	        chat2.adicionarMensagem(msg3);
+	        chat2.adicionarMensagem(msg4);
 	        
 	        
-	     // Exibindo as mensagens do chat1
-	        for (Mensagem mensagem : chat1.getMensagens()) {
-	            System.out.println(mensagem.getContato().getNome() + ": " + mensagem.getConteudo());
-	        
-	         // Exibindo as mensagens do chat2
-		        for (Mensagem mensagem2 : chat2.getMensagens()) {
-		            System.out.println(mensagem2.getContato().getNome() + ": " + mensagem2.getConteudo());
-		        }
-	        }
-	    }
+	        // Exibindo as mensagens do chat1
+	        chat1.showMensagens();
+	        // Exibindo as mensagens do chat2
+	        chat2.showMensagens();
+	 }
 }
- .
+
+ 

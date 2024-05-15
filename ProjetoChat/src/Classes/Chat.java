@@ -29,7 +29,7 @@ public class Chat {
         return mensagens;
     }
     
-    
+    //metodo para encontrar um chat dado um contato
     public static Chat selecionarChat(Contato contato) {
         for (Chat chat : chats) {
             if (chat.getContato().getNumero() == contato.getNumero()) {
@@ -38,4 +38,14 @@ public class Chat {
         }
         return null;
     }
+    
+    // metodo para mostrar as mensagens de um chat
+    public void showMensagens() {
+    	System.out.println(this.getContato().getNome()+"");
+        	for (Mensagem mensagem : this.getMensagens()) {
+        		System.out.println(mensagem.mensagemModelo());
+        }
+    }
+    
+    
 }

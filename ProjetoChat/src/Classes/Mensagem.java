@@ -3,15 +3,22 @@ import java.time.LocalDateTime;
 
 public class Mensagem {
 	    private Contato contato;
-	    private LocalDateTime hora;
+	    private LocalDateTime dataHora;
+	    private String hora;
 	    private String conteudo;
 
 	    public Mensagem(Contato contato, String conteudo) {
 	        this.contato = contato;
-	        this.hora = LocalDateTime.now();
+	        this.dataHora = LocalDateTime.now();
+	        this.hora = dataHora.getHour()+":"+dataHora.getMinute();//formatação para mostrar apenas horas e minutos
 	        this.conteudo = conteudo;
 	    }
-
+	    //modelo para as mensagens HH:MM Nome: mensagem
+	    public String mensagemModelo() {
+	    	return hora +" "+ contato.getNome()+": "+conteudo;
+	    	
+	    }
+	    
 	    public Contato getContato() {
 	        return contato;
 	    }
@@ -20,7 +27,7 @@ public class Mensagem {
 	        this.contato = contato;
 	    }
 
-	    public LocalDateTime getHora() {
+	    public String getHora() {
 	        return hora;
 	    }
 
