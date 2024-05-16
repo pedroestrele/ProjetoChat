@@ -1,13 +1,19 @@
 package Classes;
 
-public class Contato {
-	
-	 private String nome;
-	    private int numero;
+import java.util.HashSet;
+import java.util.Set;
 
-	    public Contato(String nome, int numero) {
+public abstract class Contato {
+	
+	    private String nome;
+	    private int numero;
+	    static Set<Contato> contatos = new HashSet<>(); //lista com todos os contatos adicionados
+
+	    protected Contato(String nome, int numero) {
 	        this.nome = nome;
 	        this.numero = numero;
+	        Chat chat1 = new Chat(this);
+	        contatos.add(this);
 	    }
 
 	    public String getNome() {
@@ -25,5 +31,13 @@ public class Contato {
 	    public void setNumero(int numero) {
 	        this.numero = numero;
 	    }
-	
+	   
+	    public static Contato acharContato(int numero) { // metodo estático para buscar contato na lista de contatos
+	        for(Contato contato:contatos) {
+	            if (contato.getNumero()==numero) {
+	                return contato;
+	            }
+	        }
+	        return null;
+	    }
 }

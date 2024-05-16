@@ -10,6 +10,7 @@ public class Chat {
     public Chat(Contato contato) {
         this.contato = contato;
         this.mensagens = new ArrayList<>();
+        chats.add(this);
         
     }
 
@@ -32,7 +33,7 @@ public class Chat {
     //metodo para encontrar um chat dado um contato
     public static Chat selecionarChat(Contato contato) {
         for (Chat chat : chats) {
-            if (chat.getContato().getNumero() == contato.getNumero()) {
+            if (chat.getContato() == contato) {
                 return chat;
             }
         }
